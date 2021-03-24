@@ -1,0 +1,11 @@
+.form-group{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    margin: 10px;
+}
+
+.form-group input{
+    margin: 15px;
+    padding: 10px;
+}

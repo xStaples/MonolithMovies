@@ -1,0 +1,10 @@
+.nav-group-list{
+    display: flex;
+    list-style: none;
+}
+
+.nav-group-list a{
+    text-decoration: none;
+    margin: 10px;
+}
+

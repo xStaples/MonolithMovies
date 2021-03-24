@@ -1,0 +1,20 @@
+<div class="register-container">
+    <div class="register-header">
+        {{title}}
+    </div>
+    <div class="register-body">
+        <div class="register-form">
+            <div class="form-group">
+                <input [(ngModel)]="user.firstName" type="text" placeholder="First Name">
+                <input [(ngModel)]="user.lastName" type="text" placeholder="Last Name">
+                <input [(ngModel)]="user.username" type="text" placeholder="Username">
+                <input [(ngModel)]="user.password" type="password" placeholder="Password">
+            </div>
+
+            <button (click)="registerUser()" class="registration-btn">Register</button>
+        </div>
+        <div class="register-msg">
+            {{clientMessage.message}}
+        </div>
+    </div>
+</div>
