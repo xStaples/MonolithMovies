@@ -59,7 +59,7 @@
           <props>
               <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
               <prop key="show_sql">true</prop>
-              <prop key="hibernate.hbm2ddl.auto">create</prop>
+              <prop key="hibernate.hbm2ddl.auto">validate</prop>
               <!-- Customize this -->
               <prop key="hibernate.default_schema">movieapp</prop>   <!-- Change this later -->
           </props>

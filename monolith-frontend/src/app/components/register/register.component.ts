@@ -13,7 +13,7 @@ export class RegisterComponent{
   title = "Welcome!"
   constructor(private userServ: UserService) { }
 
-  public user: User = new User(0,'', '', '', '', 0, 0)
+  public user: User = new User('', '', '', '')
   public clientMessage: ClientMessage = new ClientMessage('');
 
   public registerUser(): void{
