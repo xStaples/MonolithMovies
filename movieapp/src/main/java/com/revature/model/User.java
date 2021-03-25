@@ -13,6 +13,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.revature.setup.UserSerializer;
+
+@JsonSerialize(using=UserSerializer.class)
 @Entity
 public class User {
 

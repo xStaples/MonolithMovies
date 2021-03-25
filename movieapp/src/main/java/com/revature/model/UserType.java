@@ -11,6 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.revature.setup.UserTypeSerializer;
+
+@JsonSerialize(using=UserTypeSerializer.class)
 @Entity
 public class UserType {
 
