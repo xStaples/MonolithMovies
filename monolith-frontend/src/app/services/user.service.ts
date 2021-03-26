@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import { ClientMessage } from '../models/client-message.model';
 import { User } from '../models/user.model';
-import { RDS_URL } from 'src/environments/environment';
+import { BACKEND_URL } from 'src/environments/environment';
 import {catchError} from 'rxjs/operators';
 
 @Injectable({
@@ -14,8 +14,17 @@ export class UserService {
 
   constructor(private http:HttpClient) { }
 
+  public updateUser(user:User){
+    //TODO: service layer update user account info
+  }
+
+  public loginUser(user: User){
+    //TODO: service layer login function
+  }
+
+
   public registerUser(user: User): Observable<ClientMessage>{
-    return this.http.post<ClientMessage>(`${RDS_URL}registerUser`, user)
+    return this.http.post<ClientMessage>(`${BACKEND_URL}registerUser`, user)
     .pipe(
       catchError(this.handleError<any>('Cannot register User!'))
     )
