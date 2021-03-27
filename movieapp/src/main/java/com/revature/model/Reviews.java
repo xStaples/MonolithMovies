@@ -1,5 +1,7 @@
 package com.revature.model;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,7 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-public class Reviews {
+public class Reviews implements Serializable{
+  private static final long serialVersionUID = 1L;
   
   @Id
   @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="reviewsSequence")

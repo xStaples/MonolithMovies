@@ -1,5 +1,6 @@
 package com.revature.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,12 +12,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.revature.setup.UserTypeSerializer;
-
-@JsonSerialize(using=UserTypeSerializer.class)
+// @JsonSerialize(using=UserTypeSerializer.class)
 @Entity
-public class UserType {
+public class UserType implements Serializable{
+  private static final long serialVersionUID = 1L;
 
   @Id
   @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="userTypeSequence")

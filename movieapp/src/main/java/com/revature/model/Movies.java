@@ -1,5 +1,6 @@
 package com.revature.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -15,7 +16,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-public class Movies {
+public class Movies implements Serializable{
+  private static final long serialVersionUID = 1L;
 
   @Id
   @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="moviesSequence")
