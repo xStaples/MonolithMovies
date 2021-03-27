@@ -2,7 +2,7 @@ package com.revature.movieapp;
 
 /**
  * Hello world!
- *
+ *Hello world!
  */
 public class App 
 {
