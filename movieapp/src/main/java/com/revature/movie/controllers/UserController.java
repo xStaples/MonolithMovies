@@ -67,7 +67,7 @@ public class UserController {
 	  Test in PostMan:: Select Get, URL: http://localhost:8080/movieusers/getUser/1 
 	  1 is the id of the user
 	*/
-	@GetMapping("/getUser/{id}")
+	@GetMapping("/getuser/{id}")
 	public ResponseEntity<User> getUserById(@PathVariable Integer id) {
 		log.info("<>------------- Inside getUserById(...) :: "+id);
 		User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User ID not found: "+id)); 

@@ -33,19 +33,19 @@ public class ReviewsController {
 	
 	@GetMapping("/allreviews")
 	public List<Reviews> getAllReviews() {
-		log.info("<>------------- Inside getAllUsers(...)");
+		log.info("<>------------- Inside getAllReviews(...)");
 		return reviewsRepository.findAll();
 	}
 	
 	@PostMapping("/addreviews")		//will handle http post request
 	public Reviews createReview(@RequestBody Reviews rvw) {
-		log.info("<>------------- Inside createUser(...)");
+		log.info("<>------------- Inside createReview(...)");
 		return reviewsRepository.save(rvw);
 	}
 	
 	@GetMapping("/getreview/{id}")
 	public ResponseEntity<Reviews> getReviewsById(@PathVariable Integer id) {
-		log.info("<>------------- Inside getUserById(...) :: "+id);
+		log.info("<>------------- Inside getReviewsById(...) :: "+id);
 		Reviews reviews = reviewsRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Review ID not found: "+id)); 
 		return ResponseEntity.ok(reviews);
 	}	
@@ -53,25 +53,25 @@ public class ReviewsController {
 	@PostMapping("/updatereview/{id}")
 	public ResponseEntity<Reviews> updateReview(@PathVariable Integer id, 
 				   									@RequestBody Reviews rvw) {
-	log.info("<>------------- Inside updateUser(...):: "+id);
+	log.info("<>------------- Inside updateReview(...):: "+id);
 	Reviews reviews = reviewsRepository.findById(id)
-	.orElseThrow(() -> new ResourceNotFoundException("User ID not found: "+id)); 
+	.orElseThrow(() -> new ResourceNotFoundException("Review ID not found: "+id)); 
 	
 	reviews.setReviewScore(rvw.getReviewScore());
 	reviews.setReviewText(rvw.getReviewText());
 
 	
-	//update user
+	//update reviews
 	reviews = reviewsRepository.save(reviews);
 	
 	return ResponseEntity.ok(reviews);		
 	}	
 	
 	@DeleteMapping("/deletereview/{id}")
-	public ResponseEntity<Map<String, Boolean>> deleteUser(@PathVariable Integer id) {
-		log.info("<>------------- Inside deleteUser(...):: "+id);
+	public ResponseEntity<Map<String, Boolean>> deleteReview(@PathVariable Integer id) {
+		log.info("<>------------- Inside deleteReview(...):: "+id);
 		Reviews reviews = reviewsRepository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("User ID not found: "+id)); 
+				.orElseThrow(() -> new ResourceNotFoundException("Review ID not found: "+id)); 
 		
 		reviewsRepository.delete(reviews);
 		 Map<String, Boolean> deleteMap = new HashMap<>(); 
