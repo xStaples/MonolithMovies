@@ -5,6 +5,7 @@ import { ClientMessage } from '../models/client-message.model';
 import { User } from '../models/user.model';
 import { BACKEND_URL } from 'src/environments/environment';
 import {catchError} from 'rxjs/operators';
+import { LoginTemplete } from '../models/login-templete.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,9 @@ export class UserService {
     //TODO: service layer update user account info
   }
 
-  public loginUser(user: User){
+  public loginUser(user: LoginTemplete): Observable<ClientMessage> {
     //TODO: service layer login function
+    return this.http.post<ClientMessage>(`${BACKEND_URL}login`, user)
   }
 
 

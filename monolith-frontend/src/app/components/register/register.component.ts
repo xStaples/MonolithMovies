@@ -3,6 +3,7 @@ import { ClientMessage } from 'src/app/models/client-message.model';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -10,7 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class RegisterComponent{
 
-  title = "Welcome!"
+  title = "New User Registration"
   constructor(private userServ: UserService) { }
 
   public user: User = new User('', '', '', '')

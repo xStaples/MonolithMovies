@@ -5,8 +5,24 @@
     <div class="container-body">
 
         <div class="login-form">
-            <input [(ngModel)]="user.username" type="text" placeholder="Username" />
-            <input [(ngModel)]="user.password" type="password" placeholder="Password" />
+            <div class="login-form-item">
+                <label for="loginUsername">Username:</label>
+                <input [(ngModel)]="user.loginUsername" type="text" placeholder="Enter Username" />
+            </div>
+            <div class="login-form-item">
+                <label for="loginPassword">Password:</label>
+                <input [(ngModel)]="user.loginPassword" type="password" placeholder="Enter Password" />
+            </div>
+            <!-- <div class="resetPassword">
+                <a routerLink="/resetpassword">Forgot Password</a>
+            </div> -->
+            <button (click)="loginUser()">Login</button>
+        </div>
+        <div class="registerUser">
+            <div class="regUserText">
+                Not a member?
+            </div>
+            <span><a routerLink="/register">Sign up</a> Today! </span>
         </div>
     </div>
 </div>

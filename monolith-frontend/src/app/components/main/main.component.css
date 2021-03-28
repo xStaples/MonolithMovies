@@ -1,0 +1,15 @@
+.main-body{
+    display: flex;
+    justify-content: center;
+}
+.main-body-item{
+    margin: 25px;
+    text-align: center;
+
+}
+.main-body-item:hover{
+    cursor: pointer;
+}
+.main-body img{
+    width: 45%;
+}

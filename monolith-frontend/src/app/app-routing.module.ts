@@ -5,6 +5,7 @@ import { FindmovieComponent } from './components/findmovie/findmovie.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'main', pathMatch: 'full'},
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path: 'register', component:RegisterComponent},
   {path: 'login', component:LoginComponent},
   {path: 'allmovies', component: AllmoviesComponent},
-  {path: 'findmovie', component:FindmovieComponent}
+  {path: 'findmovie', component:FindmovieComponent},
+  {path: 'resetpassword', component:ResetpasswordComponent}
 ];
 
 @NgModule({

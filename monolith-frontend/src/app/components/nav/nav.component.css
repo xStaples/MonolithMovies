@@ -1,5 +1,5 @@
 .nav-group-list{
-    display: flex;
+    display: inline-flex;
     list-style: none;
 }
 
@@ -9,6 +9,21 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+.nav-list-login-group{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: right;
+    list-style: none;
+    margin-top: -35px;
+}
+
+.nav-list-login-group a{
+    text-decoration: none;
+    margin-right: 40px ;
+}
+
+.nav-list-item img{
+    width: 2%;
+}
 
 
 
