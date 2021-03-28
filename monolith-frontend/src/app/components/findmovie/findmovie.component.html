@@ -7,11 +7,28 @@
             <div class="form-input">
                 <input [(ngModel)]="movie.name" type="text">
             </div>
-            <button class="findMovie-btn">Find Movie</button>
+            <button class="findMovie-btn" (click)="findMovie()">Find Movie</button>
         </div>
         
         <div class="form-results">
-            results
+            <div *ngIf="">
+                <div *ngIf="movieResults">
+                    <div>
+                        <strong>Name:</strong>
+                        {{movieResults.title}}
+                    </div>
+                    <div>
+                        <strong>SuperPower:</strong>
+                        {{movieResults.image}}
+                    </div>
+                    <div>
+                        <strong>Has Cape: </strong> 
+                        {{movieResults.year}}
+                    </div>
+                    <div>
+                        <img src="movieResults.image.url" alt="">
+                    </div>
+            </div>
         </div>
     </div>
 
