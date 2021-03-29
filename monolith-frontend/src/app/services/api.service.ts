@@ -3,25 +3,36 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MOVIE_API } from 'src/environments/environment';
 import { Movie } from '../models/movie.model';
-import { HttpHeaders } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class ApiService{
 
-  constructor(private http: HttpClient) { }
+  data:any = []
+  constructor(private http:HttpClient) { }
 
-  
-  // getMovies(){
-  //   return this.http.get()
-  // }
   public findMovies(movie: Movie): Observable<any>{
-    const headers = new HttpHeaders;
-    headers.set('x-rapidapi-key', MOVIE_API);
     
-    console.log(headers.set('x-rapidapi-key', MOVIE_API));
+    const url = `http://www.omdbapi.com/?t=${movie.name}&apikey=${MOVIE_API}`;
+    this.http.get(url).subscribe((res) => {
+      this.data = res
+      console.log(res);
+      
+    })
     
-    return this.http.post<any>(`https://imdb8.p.rapidapi.com/title/find?q=${movie.name}`,{'headers':headers})
+    return this.http.get(url);
+  
+  }
+
+  getBestMovies(): Observable<any>{
+    const url = `http://www.omdbapi.com/?s=the%20avengers&apikey=${MOVIE_API}`
+    this.http.get(url).subscribe((res) => {
+      this.data = res
+      console.log(res);
+    })
+
+    return this.http.get(url);
   }
 }
