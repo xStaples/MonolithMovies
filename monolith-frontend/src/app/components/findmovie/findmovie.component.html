@@ -11,22 +11,25 @@
         </div>
         
         <div class="form-results">
-            <div *ngIf="">
                 <div *ngIf="movieResults">
                     <div>
-                        <strong>Name:</strong>
-                        {{movieResults.title}}
+                        <img src={{movieResults.Poster}} alt="">
                     </div>
                     <div>
-                        <strong>SuperPower:</strong>
-                        {{movieResults.image}}
+                        <strong>Movie Title:</strong>
+                        {{movieResults.Title}}
                     </div>
                     <div>
-                        <strong>Has Cape: </strong> 
-                        {{movieResults.year}}
+                        <strong>IMDB Rating:</strong>
+                        {{movieResults.imdbRating}}
                     </div>
                     <div>
-                        <img src="movieResults.image.url" alt="">
+                        <strong>Release Date: </strong> 
+                        {{movieResults.Year}}
+                    </div>
+                    <div>
+                        <strong>Top Billed Cast:</strong>
+                        {{movieResults.Actors}}
                     </div>
             </div>
         </div>

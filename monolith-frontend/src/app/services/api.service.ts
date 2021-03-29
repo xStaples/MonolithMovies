@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MOVIE_API } from 'src/environments/environment';
 import { Movie } from '../models/movie.model';
@@ -10,13 +10,29 @@ import { Movie } from '../models/movie.model';
 })
 export class ApiService{
 
-  
+  data:any = []
   constructor(private http:HttpClient) { }
 
   public findMovies(movie: Movie): Observable<any>{
     
-  
+    const url = `http://www.omdbapi.com/?t=${movie.name}&apikey=${MOVIE_API}`;
+    this.http.get(url).subscribe((res) => {
+      this.data = res
+      console.log(res);
+      
+    })
     
-    return this.http.post<any>(`https://imdb8.p.rapidapi.com/title/find?q=${movie.name}`, movie)
+    return this.http.get(url);
+  
+  }
+
+  getBestMovies(): Observable<any>{
+    const url = `http://www.omdbapi.com/?s=the%20avengers&apikey=${MOVIE_API}`
+    this.http.get(url).subscribe((res) => {
+      this.data = res
+      console.log(res);
+    })
+
+    return this.http.get(url);
   }
 }

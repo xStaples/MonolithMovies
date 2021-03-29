@@ -1,1 +1,10 @@
-<p>allmovies works!</p>
+<div class="allmovies-container">
+    <div class="allmovies-head">
+        {{title}}
+    </div>
+    <div class="allmovies-body">
+        <div *ngFor="let movie of movies.search">
+            {{movie.Title}}
+        </div>
+    </div>
+</div>

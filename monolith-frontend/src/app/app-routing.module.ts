@@ -10,8 +10,8 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
 const routes: Routes = [
   {path: '', redirectTo: 'main', pathMatch: 'full'},
   {path: 'main', component:MainComponent},
-  {path: 'register', component:RegisterComponent},
-  {path: 'login', component:LoginComponent},
+  {path: 'movieuser/adduser', component:RegisterComponent},
+  {path: 'user/login', component:LoginComponent},
   {path: 'allmovies', component: AllmoviesComponent},
   {path: 'findmovie', component:FindmovieComponent},
   {path: 'resetpassword', component:ResetpasswordComponent}

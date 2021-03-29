@@ -12,6 +12,7 @@ import { FindmovieComponent } from './components/findmovie/findmovie.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
+import { ReviewsComponent } from './components/reviews/reviews.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
     LoginComponent,
     AllmoviesComponent,
     FindmovieComponent,
-    ResetpasswordComponent
+    ResetpasswordComponent,
+    ReviewsComponent
   ],
   imports: [
     BrowserModule,

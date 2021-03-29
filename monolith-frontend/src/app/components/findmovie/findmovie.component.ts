@@ -13,13 +13,18 @@ export class FindmovieComponent{
   //TODO search feature for single move
   title="Search Movies!"
   public movie: Movie = new Movie('')
-  public movieResults:ReceivedMovie = new ReceivedMovie('', '', 0)
+  public movieResults?: any = []
+  
 
   constructor(private apiServ: ApiService) { }
 
 
   public findMovie(): void{
-    this.apiServ.findMovies(this.movie).subscribe(data => this.movieResults = data)
-    console.log(this.movieResults)
+    this.apiServ.findMovies(this.movie).subscribe((data) => {
+      this.movieResults = data
+      return this.movieResults
+    });
+    console.log(this.movieResults);
+    
   }
 }
