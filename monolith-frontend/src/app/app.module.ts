@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
+import { UpdateuserComponent } from './components/updateuser/updateuser.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ReviewsComponent } from './components/reviews/reviews.component';
     AllmoviesComponent,
     FindmovieComponent,
     ResetpasswordComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    UpdateuserComponent
   ],
   imports: [
     BrowserModule,

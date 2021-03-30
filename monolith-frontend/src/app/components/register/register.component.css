@@ -1,11 +1,6 @@
-.form-group{
-    display: flex;
-    flex-direction: column;
-    width: 250px;
-    margin: 10px;
-}
-
-.form-group input{
-    margin: 15px;
-    padding: 10px;
+.registration-btn{
+    color:green;
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 5px;
 }

@@ -5,13 +5,13 @@ import { ClientMessage } from '../models/client-message.model';
 import { User } from '../models/user.model';
 import { BACKEND_URL } from 'src/environments/environment';
 import {catchError} from 'rxjs/operators';
-import { LoginTemplete } from '../models/login-templete.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
+  user?:User;
 
   constructor(private http:HttpClient) { }
 
@@ -19,17 +19,27 @@ export class UserService {
     //TODO: service layer update user account info
   }
 
-  public loginUser(user: LoginTemplete): Observable<ClientMessage> {
-    //TODO: service layer login function
-    return this.http.post<ClientMessage>(`${BACKEND_URL}login`, user)
+  public loginUser(username:string, password:string) {
+
+    return this.http.get<User>(`${BACKEND_URL}movieusers/login/${username}/${password}`)
   }
 
+  public logout(){
+    if(!this.isUserSignedIn()) return;
+    sessionStorage.clear();
+  }
 
   public registerUser(user: User): Observable<ClientMessage>{
-    return this.http.post<ClientMessage>(`${BACKEND_URL}registerUser`, user)
+    return this.http.post<ClientMessage>(`${BACKEND_URL}movieusers/adduser`, user)
     .pipe(
       catchError(this.handleError<any>('Cannot register User!'))
     )
+  }
+
+  public isUserSignedIn(){
+    if(this.user !== null){
+      return true;
+    }else{return false}
   }
 
   private handleError<T>(operation = 'operation', result?: T){

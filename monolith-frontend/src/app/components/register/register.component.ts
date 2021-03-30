@@ -14,7 +14,7 @@ export class RegisterComponent{
   title = "New User Registration"
   constructor(private userServ: UserService) { }
 
-  public user: User = new User('', '', '', '')
+  public user: User = new User('', '', '', '', 1)
   public clientMessage: ClientMessage = new ClientMessage('');
 
   public registerUser(): void{

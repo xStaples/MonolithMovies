@@ -16,8 +16,11 @@ export class AllmoviesComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log(this.apiServ.getBestMovies().subscribe(data => this.movies = data));
+
     
   }
 
+  getMovies():void{
+    this.apiServ.getBestMovies().subscribe(data => this.movies = data)
+  }
 }
