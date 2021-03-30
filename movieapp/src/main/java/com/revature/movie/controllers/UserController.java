@@ -119,5 +119,32 @@ public class UserController {
 		 
 		 return ResponseEntity.ok(deleteMap);
 	}	
+	
 
+	
+//	@GetMapping("/userByName/{name}")
+//	public ResponseEntity<User> getUserByName(@PathVariable String name) {
+//		log.info("<>------------- Inside getUserByName(...) :: "+name);
+//		User user = userRepository.findByName(name);
+//		log.info("<>------------- The user :: "+user);
+//		return ResponseEntity.ok(user);
+//	}
+	
+	@GetMapping("/login/{username}/{password}")
+	public String findByUsername(@PathVariable String username, @PathVariable String password) {
+		log.info("<>------------- Inside findByUsername(...)");
+		User user =  userRepository.findByName(username);
+		
+		if(user!=null) {
+			if(user.getPassword().equals(password)) {
+				return "success";
+			} else {
+				System.out.println(user);
+				return "wrong password";
+			}
+		} else {
+		System.out.println(user);
+		return "fail";
+		}
+	}
 }
