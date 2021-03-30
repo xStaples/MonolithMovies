@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Movie } from 'src/app/models/movie.model';
-import { ReceivedMovie } from 'src/app/models/received-movie.model';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -14,6 +13,7 @@ export class FindmovieComponent{
   title="Search Movies!"
   public movie: Movie = new Movie('')
   public movieResults?: any = []
+  public movieDetails?: any = []
   
 
   constructor(private apiServ: ApiService) { }
@@ -26,5 +26,13 @@ export class FindmovieComponent{
     });
     console.log(this.movieResults);
     
+  }
+
+  public getMovieDetails(): void {
+    this.apiServ.getMovieDetails(this.movie).subscribe((data) => {
+      this.movieDetails = data;
+      return this.movieDetails
+    });
+    console.log(this.movieDetails);
   }
 }

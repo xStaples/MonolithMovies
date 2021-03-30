@@ -12,10 +12,10 @@
 
             <!-- <li id="nav-login-item" class="nav-list-item"><a routerLink="/login"><img src="../../../assets/photos/user.png" alt="userLogin"></a></li> -->
             <li id="nav-login-item" class="nav-list-item">
-                <a *ngIf="loggedOn" routerLink="/login">Login</a>   
+                <a *ngIf="!loggedOn" routerLink="/login">Login</a>   
             </li>
-            <li class="nav-list-item"><a *ngIf="!loggedOn" >Logoff</a> </li>
-            <li class="nav-list-item"><a *ngIf="!loggedOn" routerLink="/updateprofile"><img src="../../../assets/photos/user.png" alt="profileIcon"> </a> </li>
+            <li class="nav-list-item"><a *ngIf="loggedOn" >Logoff</a> </li>
+            <li class="nav-list-item"><a *ngIf="loggedOn" routerLink="/updateprofile"><img src="../../../assets/photos/user.png" alt="profileIcon"> </a> </li>
 
         </div>
     </div>
