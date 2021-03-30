@@ -6,11 +6,11 @@
 .nav-group-list a{
     text-decoration: none;
     margin: 10px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
 }
 
 .nav-list-login-group{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
     text-align: right;
     list-style: none;
     margin-top: -35px;
