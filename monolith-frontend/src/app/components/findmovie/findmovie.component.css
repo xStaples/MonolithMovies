@@ -1,0 +1,10 @@
+.container-header{
+    text-align: center;
+    margin: 10px;
+}
+
+.form-results{
+    margin: 10px;
+    float: right;
+    width: fit-content;
+}

@@ -25,7 +25,7 @@ export class UserService {
   }
 
   public logout(){
-    if(!this.isUserSignedIn()) return;
+  
     sessionStorage.clear();
   }
 
@@ -36,8 +36,8 @@ export class UserService {
     )
   }
 
-  public isUserSignedIn(){
-    if(this.user !== null){
+  public isUserSignedIn(user:User){
+    if(user !== null){
       return true;
     }else{return false}
   }
