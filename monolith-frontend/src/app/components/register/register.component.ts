@@ -20,6 +20,13 @@ export class RegisterComponent{
   public registerUser(): void{
     this.userServ.registerUser(this.user).subscribe(data => this.clientMessage = data, error => this.clientMessage.message = "Something went wrong")
     console.log(this.user);
-    
+    if(this.user != null){
+      this.clientMessage.message = "Success";
+      this.user.username = "";
+      this.user.password = "";
+      this.user.firstName = "";
+      this.user.lastName = "";
+      
+    }
   }
 }
