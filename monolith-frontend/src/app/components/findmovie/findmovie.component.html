@@ -42,7 +42,7 @@
                                         <img src="{{result.Poster}}" class="card-img-top" alt="moviePoster">
                                     </div>
                                     <div class="card-body" *ngFor="let details of movieDetails">
-                                        <h5 class="card-title" [(ngModel)] ="selectedMovie.name">{{movieDetails.Title}}</h5>
+                                        <h5 class="card-title" [(ngModel)] ="selectedMovie.name">{{details.Title}}</h5>
                                             <ul class="list-group list-group-flush" >
                                                 <li class="list-group-item" ><strong>Plot:</strong> <br> {{movieDetails.Plot}}</li>
                                                 <li class="list-group-item" ><strong>Release Year:</strong> {{movieDetails.Year}}</li>

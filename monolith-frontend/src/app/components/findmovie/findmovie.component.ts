@@ -51,7 +51,7 @@ export class FindmovieComponent{
       
       console.log(this.movieDetails);
       console.log(this.selectedMovie);
-      if(this.selectedMovie === this.movieDetails.Title){
+      if(this.selectedMovie === this.movieDetails){
         console.log(this.movieDetails);
         
         return this.movieDetails
