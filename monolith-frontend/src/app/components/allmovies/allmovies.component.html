@@ -1,0 +1,28 @@
+<div class="allmovies-container">
+    <div class="allmovies-head">
+        {{title}}
+    </div>
+    <div class="allmovies-body">
+        <div *ngFor="let movie of movies.Search">
+            <div class="form-results">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{movie.Poster}}" class="card-img-top" alt="moviePoster">
+                    <div class="card-body">
+                      <h5 class="card-title">{{movie.Title}}</h5>
+                      <p class="card-text">Directed By: {{movie.Director}}</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><strong>Plot:</strong> <br> {{movie.Plot}}</li>
+                      <li class="list-group-item"><strong>Release Year:</strong> {{movie.Year}}</li>
+                      <li class="list-group-item"><strong>Rating: </strong>{{movie.imdbRating}}</li>
+                      <li class="list-group-item"><strong>Top Billed Cast: </strong>{{movie.Actors}}</li>
+                    </ul>
+                    <div class="card-body">
+                        <!-- TODO: create addFavorite method that adds favorite movie to list-->
+                        <button class="addFavorite">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
