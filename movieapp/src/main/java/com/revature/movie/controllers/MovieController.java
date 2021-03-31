@@ -57,7 +57,7 @@ public class MovieController {
     	}	  
 	  Click on send, then check movie table.
 	*/
-	@PostMapping("/movies")		//will handle http post request
+	@PostMapping("/addmovie")		//will handle http post request
 	public Movie createMovie(@RequestBody Movie movie) {
 		log.info("<>------------- Inside createMovie(...)");
 		return movieRepository.save(movie);
@@ -67,7 +67,7 @@ public class MovieController {
 	  Test in PostMan:: Select Get, URL: http://localhost:8080/api/v1/movies/1 
 	  1 is the id of the movie
 	*/
-	@GetMapping("/movies/{id}")
+	@GetMapping("/moviebyid/{id}")
 	public ResponseEntity<Movie> getMovieById(@PathVariable Long id) {
 		log.info("<>------------- Inside getMovieById(...) :: "+id);
 		Movie movie = movieRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Movie ID not found: "+id)); 
@@ -83,7 +83,7 @@ public class MovieController {
   		}	  
 	  Click on send, then check movie table.
 	*/
-	@PostMapping("/movies/{id}") 
+	@PostMapping("/updatemovie/{id}") 
 	public ResponseEntity<Movie> updateMovie(@PathVariable Long id, 
 												   @RequestBody Movie employhi) {
 		log.info("<>------------- Inside updateMovie(...):: "+id);
