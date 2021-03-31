@@ -36,14 +36,14 @@ public class Reviews implements Serializable {
 	public Reviews() {
 	}
 
-	public Reviews(int id, int reviewScore, String reviewText, Movie movieFk, User user) {
+	public Reviews(int id, int reviewScore, String reviewText, User user) {
 		this.id = id;
 		this.reviewScore = reviewScore;
 		this.reviewText = reviewText;
 		this.user = user;
 	}
 
-	public Reviews(int reviewScore, String reviewText, Movie movieFk, User user) {
+	public Reviews(int reviewScore, String reviewText, User user) {
 		this.reviewScore = reviewScore;
 		this.reviewText = reviewText;
 		this.user = user;
