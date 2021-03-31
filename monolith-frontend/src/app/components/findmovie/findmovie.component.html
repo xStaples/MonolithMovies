@@ -1,38 +1,64 @@
 <div class="findMovie-container">
+
+
     <div class="container-header">
         {{title}}
     </div>
-    <div class="container-body">
-        <div class="form-group">
-            <div class="form-input">
-                <input [(ngModel)]="movie.name" type="text">
-            </div>
-            <button class="findMovie-btn" (click)="findMovie()">Find Movie</button>
-        </div>
-        
-        <div class="form-results">
-                <div *ngIf="movieResults">
-                    <div>
-                        <img src={{movieResults.Poster}} alt="">
-                    </div>
-                    <div>
-                        <strong>Movie Title:</strong>
-                        {{movieResults.Title}}
-                    </div>
-                    <div>
-                        <strong>IMDB Rating:</strong>
-                        {{movieResults.imdbRating}}
-                    </div>
-                    <div>
-                        <strong>Release Date: </strong> 
-                        {{movieResults.Year}}
-                    </div>
-                    <div>
-                        <strong>Top Billed Cast:</strong>
-                        {{movieResults.Actors}}
-                    </div>
-            </div>
-        </div>
-    </div>
 
+
+    <div class="container-body">
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" [(ngModel)]="movie.name" type="text" placeholder="Enter Movie Title">
+            <label for="floatingInput">Enter Movie Title</label>
+        </div>
+            <button type="button" class="btn btn-outline-primary" (click)="findMovie()">Find Movie</button>
+        <div class="form-group-results">
+            <div class="form-results" *ngFor="let result of movieResults.Search">
+                <div class="card">
+                    <img src="{{result.Poster}}" class="card-img-top" alt="moviePoster">
+                    <div class="index" ></div>
+                    <div class="card-body">
+                      <h5 class="card-title" id="movie-title" >{{result.Title}}</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><strong>Release Year:</strong> {{result.Year}}</li>
+                    </ul>
+                    <div class="card-body">
+                        <!-- TODO: create addFavorite method that adds favorite movie to list-->
+                        <button type="button" class="btn btn-outline-primary">Add to Favorites</button>
+                        <button id="details-btn" type="button" class="btn btn-outline-primary" (click)="openDetails(modalData)">More Details</button>
+
+
+                        <ng-template #modalData let-modal>
+                            <div class="modal-header" >
+                              <h4 class="modal-title" id="modal-basic-title">Movie Details</h4>
+                              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body" >
+                                <div class="card">
+                                    <div class="card-header">
+                                        <img src="{{result.Poster}}" class="card-img-top" alt="moviePoster">
+                                    </div>
+                                    <div class="card-body" *ngFor="let details of movieDetails">
+                                        <h5 class="card-title" [(ngModel)] ="selectedMovie.name">{{movieDetails.Title}}</h5>
+                                            <ul class="list-group list-group-flush" >
+                                                <li class="list-group-item" ><strong>Plot:</strong> <br> {{movieDetails.Plot}}</li>
+                                                <li class="list-group-item" ><strong>Release Year:</strong> {{movieDetails.Year}}</li>
+                                                <li class="list-group-item" ><strong>Rating: </strong>{{movieDetails.imdbRating}}</li>
+                                                <li class="list-group-item" ><strong>Top Billed Cast: </strong>{{movieDetails.Actors}}</li>
+                                            </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-outline-primary" (click)="modal.close('Save click')">Close</button>
+                            </div>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
 </div>

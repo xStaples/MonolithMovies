@@ -13,3 +13,8 @@
 .main-body img{
     width: 45%;
 }
+
+.find-movie a:hover .shine {
+    color: yellow;
+  }
+

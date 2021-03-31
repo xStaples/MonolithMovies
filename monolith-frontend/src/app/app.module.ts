@@ -14,6 +14,8 @@ import { HttpClientModule} from '@angular/common/http';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { UpdateuserComponent } from './components/updateuser/updateuser.component';
+import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
 
 @NgModule({
   declarations: [
@@ -26,13 +28,15 @@ import { UpdateuserComponent } from './components/updateuser/updateuser.componen
     FindmovieComponent,
     ResetpasswordComponent,
     ReviewsComponent,
-    UpdateuserComponent
+    UpdateuserComponent,
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

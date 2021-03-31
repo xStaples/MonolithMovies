@@ -1,0 +1,16 @@
+.container-header{
+    text-align: center;
+    margin: 10px;
+}
+
+.form-results{
+    margin: 10px;
+    float: left;
+    width: 300px;
+}
+
+.container-body{
+    display: block;
+    width: 37%;
+    margin: auto;
+}

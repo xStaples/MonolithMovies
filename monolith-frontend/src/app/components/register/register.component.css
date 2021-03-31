@@ -1,6 +1,11 @@
-.registration-btn{
-    color:green;
-    padding: 5px;
-    margin-top: 10px;
-    border-radius: 5px;
+.form-control{
+    margin-bottom: 15px;
+    max-width: 350px;
 }
+
+.register-container{
+    display: block;
+    width: 30%;
+    margin: auto;
+}
+

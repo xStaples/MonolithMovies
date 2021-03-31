@@ -1,0 +1,20 @@
+.login-container{
+display: block;
+width: 37%;
+margin: auto;
+}
+
+/* .container-header{
+    text-align: center;
+} */
+
+.form-control{
+    max-width: 350px;
+}
+.registerUser{
+    margin-top: 15px;
+}
+
+.login-btn{
+    margin-top: 15px;
+}
