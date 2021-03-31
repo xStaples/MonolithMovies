@@ -14,12 +14,18 @@ export class RegisterComponent{
   title = "New User Registration"
   constructor(private userServ: UserService) { }
 
-  public user: User = new User('', '', '', '', 1)
+  public user: User = new User('', '', '', '')
   public clientMessage: ClientMessage = new ClientMessage('');
 
   public registerUser(): void{
     this.userServ.registerUser(this.user).subscribe(data => this.clientMessage = data, error => this.clientMessage.message = "Something went wrong")
     console.log(this.user);
-    
+    if(this.user != null){
+      this.clientMessage.message = "Success";
+      this.user.username = "";
+      this.user.password = "";
+      this.user.firstName = "";
+      this.user.lastName = "";
+    }
   }
 }
