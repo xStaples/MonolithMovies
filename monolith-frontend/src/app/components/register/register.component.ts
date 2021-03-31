@@ -26,6 +26,7 @@ export class RegisterComponent{
       this.user.password = "";
       this.user.firstName = "";
       this.user.lastName = "";
+      
     }
   }
 }
