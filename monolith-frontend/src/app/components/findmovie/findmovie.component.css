@@ -5,6 +5,12 @@
 
 .form-results{
     margin: 10px;
-    float: right;
-    width: fit-content;
+    float: left;
+    width: 300px;
+}
+
+.container-body{
+    display: block;
+    width: 37%;
+    margin: auto;
 }

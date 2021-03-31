@@ -20,7 +20,6 @@ export class NavComponent implements OnInit{
 
   public navDisplay(){
     this.loggedOn = this.userServ.isUserSignedIn(this.user)
-    console.log(this.userServ.isUserSignedIn(this.user));
     
     return this.loggedOn;
   }
