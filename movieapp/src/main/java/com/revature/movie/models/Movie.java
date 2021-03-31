@@ -83,6 +83,10 @@ public class Movie implements Serializable{
 		this.details = details;
 	}
 
+	public Movie(String movieName){
+		this.movieName = movieName;
+	}
+
 
 
 	/**

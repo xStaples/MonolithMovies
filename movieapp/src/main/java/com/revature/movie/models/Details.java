@@ -42,11 +42,10 @@ public class Details implements Serializable {
 		this.movieDetailsList = movieCastList;
 	}
 
-	public Details(String genre, String director, List<Movie> movieCastList) {
+	public Details(String genre, String director) {
 		super();
 		this.genre = genre;
 		this.director = director;
-		this.movieDetailsList = movieCastList;
 	}
 
 	public int getId() {
