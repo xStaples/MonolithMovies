@@ -10,7 +10,8 @@ import { Movie } from '../models/movie.model';
 })
 export class ApiService{
 
-  data:any = []
+  public data:any = []
+
   constructor(private http:HttpClient) { }
 
   public findMovies(movie: Movie): Observable<any>{
@@ -30,8 +31,9 @@ export class ApiService{
     this.http.get(url).subscribe((res) => {
       this.data = res
       console.log(res);
-      
+
     })
+
     return this.http.get(url);
   }
 

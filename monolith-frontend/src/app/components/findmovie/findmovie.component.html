@@ -7,19 +7,19 @@
 
 
     <div class="container-body">
-        <div class="form-group">
+        <div class="form-group-input">
             <div class="form-input">
                 <input class="form-control" [(ngModel)]="movie.name" type="text" placeholder="Enter Movie Title">
             </div>
             <button class="findMovie-btn" (click)="findMovie()">Find Movie</button>
         </div>
-        <div class="form-group">
+        <div class="form-group-results">
             <div class="form-results" *ngFor="let result of movieResults.Search">
 
                 <div class="card">
                     <img src="{{result.Poster}}" class="card-img-top" alt="moviePoster">
                     <div class="card-body">
-                      <h5 class="card-title">{{result.Title}}</h5>
+                      <h5 class="card-title" id="movie-title">{{result.Title}}</h5>
                       <!-- <p class="card-text">Directed By: {{result.Director}}</p> -->
                     </div>
                     <ul class="list-group list-group-flush">
@@ -32,37 +32,39 @@
                         <!-- TODO: create addFavorite method that adds favorite movie to list-->
                         <!-- TODO: Creat getMovieDetails method that gets details of movie-->
                         <button class="addFavorite">Add to Favorites</button>
-                        <div id="my-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <img src="{{result.Poster}}" class="card-img-top" alt="moviePoster">
-                                            </div>
-                                            <div class="card-body">
-                                                <h5 class="card-title">{{result.Title}}</h5>
-                                                    <ul class="list-group list-group-flush">
-                                                        <li class="list-group-item"><strong>Plot:</strong> <br> {{result.Plot}}</li>
-                                                        <li class="list-group-item"><strong>Release Year:</strong> {{result.Year}}</li>
-                                                        <li class="list-group-item"><strong>Rating: </strong>{{result.imdbRating}}</li>
-                                                        <li class="list-group-item"><strong>Top Billed Cast: </strong>{{result.Actors}}</li>
-                                                  </ul>
-                                            </div>
-                                            <div class="card-footer">
-                                                <!-- <button type="button" class="btn btn-danger" (click)="modal.close()">Close</button> -->
-                                            </div>
-                                        </div>
+                        <button id="details-btn" (click)="openDetails(modalData)">More Details</button>
+
+
+                        <ng-template #modalData let-modal>
+                            <div class="modal-header">
+                              <h4 class="modal-title" id="modal-basic-title">Movie Details</h4>
+                              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                <span aria-hidden="true">×</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <img src="{{result.Poster}}" class="card-img-top" alt="moviePoster">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{result.Title}}</h5>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item"><strong>Plot:</strong> <br> {{result.Plot}}</li>
+                                                <li class="list-group-item"><strong>Release Year:</strong> {{result.Year}}</li>
+                                                <li class="list-group-item"><strong>Rating: </strong>{{result.imdbRating}}</li>
+                                                <li class="list-group-item"><strong>Top Billed Cast: </strong>{{result.Actors}}</li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- <button class="btn btn-danger" (click)="triggerModal(modalData)">More Details</button> -->
+                            <div class="modal-footer">
+                              <button type="button" (click)="modal.close('Save click')">Close</button>
+                            </div>
+                        </ng-template>
                     </div>
                 </div>
             </div>
-        </div>
-        
+        </div> 
     </div>
-
 </div>
