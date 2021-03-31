@@ -19,7 +19,6 @@ export class ApiService{
     const url = `http://www.omdbapi.com/?s=${movie.name}&apikey=${MOVIE_API}`;
     this.http.get(url).subscribe((res) => {
       this.data = res
-      console.log(res);
       
     })
     
@@ -30,8 +29,6 @@ export class ApiService{
     const url = `http://www.omdbapi.com/?t=${movie.name}&apikey=${MOVIE_API}`;
     this.http.get(url).subscribe((res) => {
       this.data = res
-      console.log(res);
-
     })
 
     return this.http.get(url);

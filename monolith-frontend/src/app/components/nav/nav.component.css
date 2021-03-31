@@ -1,30 +1,5 @@
-.nav-group-list{
-    display: inline-flex;
+.navbar-text{
     list-style: none;
 }
-
-.nav-group-list a{
-    text-decoration: none;
-    margin: 10px;
-
-}
-
-.nav-list-login-group{
-
-    text-align: right;
-    list-style: none;
-    margin-top: -35px;
-}
-
-.nav-list-login-group a{
-    text-decoration: none;
-    margin-right: 40px ;
-}
-
-.nav-list-item img{
-    width: 2%;
-}
-
-
 
 

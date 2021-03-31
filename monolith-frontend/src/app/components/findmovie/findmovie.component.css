@@ -8,3 +8,9 @@
     float: left;
     width: 300px;
 }
+
+.container-body{
+    display: block;
+    width: 37%;
+    margin: auto;
+}
