@@ -7,6 +7,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.revature.movie.exceptions.ResourceNotFoundException;
+import com.revature.movie.models.User;
+import com.revature.movie.repository.UserRepository;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,13 +23,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.revature.movie.exceptions.ResourceNotFoundException;
-import com.revature.movie.models.User;
-import com.revature.movie.repository.UserRepository;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 /**
  * @author hectorv
  *
@@ -131,20 +130,20 @@ public class UserController {
 //	}
 	
 	@GetMapping("/login/{username}/{password}")
-	public String findByUsername(@PathVariable String username, @PathVariable String password) {
+	public ResponseEntity<User> findByUsername(@PathVariable String username, @PathVariable String password) {
 		log.info("<>------------- Inside findByUsername(...)");
 		User user =  userRepository.findByName(username);
 		
 		if(user!=null) {
 			if(user.getPassword().equals(password)) {
-				return "success";
+				return ResponseEntity.ok(user);
 			} else {
 				System.out.println(user);
-				return "wrong password";
+				return null;
 			}
 		} else {
 		System.out.println(user);
-		return "fail";
+		return null;
 		}
 	}
 }
