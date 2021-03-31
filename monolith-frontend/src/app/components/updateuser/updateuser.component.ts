@@ -15,9 +15,25 @@ export class UpdateuserComponent implements OnInit {
   username!:string;
   password!:string;
   
+  isLoggedOn : boolean = false;
+  
+
+  user:User = new User(this.firstName, this.lastName, this.username, this.password)
+  display: any;
   constructor(private userServ:UserService) { }
 
   ngOnInit(): void {
+    this.isLoggedOn = this.userServ.isUserSignedIn(this.user);
+    var display = document.getElementById('updateUser-body');
+    if(this.isLoggedOn != false){
+      
+     display!.title = `sup`
+    }
+   
+  }
+
+  updateUser(){
+    this.userServ.updateUser(this.user);
   }
 
 }

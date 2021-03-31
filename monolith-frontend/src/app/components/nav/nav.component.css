@@ -2,4 +2,11 @@
     list-style: none;
 }
 
+.nav-list-item{
+    display: flex;
+}
+
+.nav-list-item img{
+    max-width: 30px;
+}
 

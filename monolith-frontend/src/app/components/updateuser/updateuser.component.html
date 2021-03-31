@@ -1,25 +1,29 @@
 <div class="updateUser-container">
-    <div class="updateUser-head">
-        {{title}}
+    <div class="container-header">
+        <h3>Update Profile</h3>
+        <h5></h5>
     </div>
-    <div class="updateUser-body">
-        <div class="body-group">
-            <div class="group-item">
-                <label for="firstName">First Name:</label>
-                <input type="text" placeholder="{{firstName}}">
-            </div>
-            <div class="group-item">
-                <label for="lastName">Last Name:</label>
-                <input type="text" placeholder="">
-            </div>
-            <div class="group-item">
-                <label for="username">Username:</label>
-                <input type="text" placeholder="">
-            </div>
-            <div class="group-item">
-                <label for="password">Password</label>
-                <input type="password" placeholder="Password">
-            </div>
+    <hr class="my-4">
+    <div id="updateUser-body">
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" [(ngModel)]="user.firstName" type="text" placeholder="Enter First Name">
+            <label for="floatingInput">Enter First Name</label>
+        </div>
+        <div class="form-floating">
+            <input type="text" class="form-control" id="floatingInput" [(ngModel)]="user.lastName" type="text" placeholder="Enter Last Name">
+            <label for="floatingPassword">Enter Last Name</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" [(ngModel)]="user.username" type="text" placeholder="Enter Username">
+            <label for="floatingInput">Enter Username</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" [(ngModel)]="user.password" type="password" placeholder="Enter Password">
+            <label for="floatingPassword">Enter Password</label>
+        </div>
+        <div class="updateUser-form-btn">
+            <button type="button" class="btn btn-outline-primary"(click)="updateUser()">Update User</button>
         </div>
     </div>
 </div>

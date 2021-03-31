@@ -31,6 +31,9 @@ export class LoginComponent {
     sessionStorage.setItem('loggedUser', JSON.stringify(this.user));
     })
     console.log(sessionStorage.getItem('loggedUser'));
+    if(sessionStorage != null){
+      this.user = undefined;
+    }
     
   }
 

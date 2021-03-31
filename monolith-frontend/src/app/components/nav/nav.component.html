@@ -10,7 +10,7 @@
             <a class="nav-link" routerLink="/findmovie">Find Movie</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">My Account</a>
+            <a class="nav-link" routerLink="/updateprofile">My Account</a>
           </li>
         </ul>
         <span class="navbar-text">
@@ -20,8 +20,8 @@
                 </li>
             </div>
             <div>
-                <li class="nav-list-item">
-                    <a class="nav-link" *ngIf="loggedOn" >Logoff</a>
+                <li class="nav-item">
+                    <a class="nav-link" *ngIf="loggedOn" (click)="logout()" routerLink="/login">Logoff</a>
                 </li>
             </div>
             <div>

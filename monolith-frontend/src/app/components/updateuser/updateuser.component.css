@@ -1,0 +1,10 @@
+.form-control{
+    margin-bottom: 15px;
+    max-width: 350px;
+}
+
+.updateUser-container{
+    display: block;
+    width: 30%;
+    margin: auto;
+}
