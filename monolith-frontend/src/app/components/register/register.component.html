@@ -4,7 +4,6 @@
         <h5>Create an Account</h5>
     </div>
     <hr class="my-4">
-    <!-- {{diagnostic}} -->
     <form (ngSubmit)="registerUser(); registrationForm.reset()" #registrationForm="ngForm">
         <div class="form-floating mb-3">
             <input type="text" class="form-control ng-untouched ng-pristine" id="regFirstName" [(ngModel)]="user.firstName" name="firstName" placeholder="Enter First Name" #firstName="ngModel" required>
@@ -43,6 +42,7 @@
                 </div>
             </div>
         </div>
+        <!-- button will not work if form is marked invalid -->
         <button type="submit" class="btn btn-primary" [disabled]="!registrationForm.form.valid">Register</button>
     </form>
     

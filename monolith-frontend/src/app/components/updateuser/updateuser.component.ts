@@ -7,30 +7,11 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './updateuser.component.html',
   styleUrls: ['./updateuser.component.css']
 })
-export class UpdateuserComponent implements OnInit {
+export class UpdateuserComponent{
+  updatedInfo:User = new User('','','','');
+  user:User = new User('','','','');
 
-  title = "Update Profile"
-  firstName!:string;
-  lastName!:string;
-  username!:string;
-  password!:string;
-  
-  isLoggedOn : boolean = false;
-  
-
-  user:User = new User(this.firstName, this.lastName, this.username, this.password)
-  display: any;
-  constructor(private userServ:UserService) { }
-
-  ngOnInit(): void {
-    this.isLoggedOn = this.userServ.isUserSignedIn(this.user);
-    var display = document.getElementById('updateUser-body');
-    if(this.isLoggedOn != false){
-      
-     display!.title = `sup`
-    }
-   
-  }
+  constructor(private userServ:UserService) { };
 
   updateUser(){
     this.userServ.updateUser(this.user);
