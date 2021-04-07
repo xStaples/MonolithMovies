@@ -1,31 +1,49 @@
 <div class="register-container">
     <div class="container-header">
         <h3>Welcome to Monolith Movies!</h3>
-        <h5>Please fill out the form below to create an account</h5>
+        <h5>Create an Account</h5>
     </div>
     <hr class="my-4">
-    <div class="register-body">
+    <!-- {{diagnostic}} -->
+    <form (ngSubmit)="registerUser(); registrationForm.reset()" #registrationForm="ngForm">
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" [(ngModel)]="user.firstName" type="text" placeholder="Enter First Name">
-            <label for="floatingInput">Enter First Name</label>
-        </div>
-        <div class="form-floating">
-            <input class="form-control" id="floatingInput" [(ngModel)]="user.lastName" type="text" placeholder="Enter Last Name">
-            <label for="floatingPassword">Enter Last Name</label>
+            <input type="text" class="form-control ng-untouched ng-pristine" id="regFirstName" [(ngModel)]="user.firstName" name="firstName" placeholder="Enter First Name" #firstName="ngModel" required>
+            <label for="firstName">Enter First Name</label>
+
+            <div [hidden]="firstName.valid || !firstName.touched" id="regInputWarn" class="alert alert-danger">
+                First name is required
+            </div>
         </div>
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" [(ngModel)]="user.username" type="text" placeholder="Enter Username">
-            <label for="floatingInput">Enter Username</label>
+            <input type="text" class="form-control ng-untouched ng-pristine" id="regLastName" [(ngModel)]="user.lastName" name="lastName" placeholder="Enter Last Name" #lastName="ngModel" required>
+            <label for="firstname">Enter Last Name</label>
+
+            <div [hidden]="lastName.valid || !lastName.touched" id="regInputWarn" class="alert alert-danger">
+                Last name is required
+            </div>
         </div>
-        <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" [(ngModel)]="user.password" type="password" placeholder="Enter Password">
-            <label for="floatingPassword">Enter Password</label>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control ng-untouched ng-pristine" id="regUsername" [(ngModel)]="user.username" name="username" placeholder="Enter Last Name" #username="ngModel" required>
+            <label for="username">Enter a Username</label>
+
+            <div *ngIf="username.invalid && (username.dirty || username.touched)" id="regInputWarn" class="alert alert-danger">
+                Username is required
+            </div>
         </div>
-        <div class="register-form">
-            <button type="button" class="btn btn-outline-primary"(click)="registerUser()">Register</button>
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="regPassword" [(ngModel)]="user.password" name="password" placeholder="Enter Last Name" #password="ngModel" minlength="8" required>
+            <label for="password">Enter a Password</label>
+
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" id="regInputWarn" class="alert alert-danger">
+                <div *ngIf="password.errors!.required">
+                    Password is required
+                </div>
+                <div *ngIf="password.errors!.minlength">
+                    Password must be at least eight(8) characters
+                </div>
+            </div>
         </div>
-        <div class="register-msg">
-            {{clientMessage.message}}
-        </div>
-    </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!registrationForm.form.valid">Register</button>
+    </form>
+    
 </div>

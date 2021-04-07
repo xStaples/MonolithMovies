@@ -1,7 +1,9 @@
-import { Component} from '@angular/core';
-import { ClientMessage } from 'src/app/models/client-message.model';
+import { Component } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {Router} from "@angular/router"
+
 
 
 @Component({
@@ -9,24 +11,16 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent{
+export class RegisterComponent {
 
-  title = "New User Registration"
-  constructor(private userServ: UserService) { }
 
-  public user: User = new User('', '', '', '')
-  public clientMessage: ClientMessage = new ClientMessage('');
+  constructor(private userServ: UserService, private router:Router) { }
 
-  public registerUser(): void{
-    this.userServ.registerUser(this.user).subscribe(data => this.clientMessage = data, error => this.clientMessage.message = "Something went wrong")
+  user: User = new User('', '', '', '');
+
+  public registerUser(): void {
+    this.userServ.registerUser(this.user).subscribe(data => this.user = data)
     console.log(this.user);
-    if(this.user != null){
-      this.clientMessage.message = "Success";
-      this.user.username = "";
-      this.user.password = "";
-      this.user.firstName = "";
-      this.user.lastName = "";
-      
-    }
+    this.router.navigate(['/login'])
   }
 }
