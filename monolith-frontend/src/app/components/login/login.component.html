@@ -4,25 +4,32 @@
         <h5>Please sign in to continue</h5>
     </div>
     <hr class="my-4">
-    <div class="container-body">
+    <form (ngSubmit)="loginUser()" #loginForm="ngForm">
         <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" [(ngModel)]="username" type="text" placeholder="Enter Username">
+            <input type="text" class="form-control ng-untouched ng-pristine" id="loginUsername"
+                [(ngModel)]="loginInfo.username" name="username" #username="ngModel" placeholder="Enter Username" required>
             <label for="floatingInput">Enter Username</label>
         </div>
-        <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" [(ngModel)]="password" type="password" placeholder="Password">
-            <label for="floatingPassword">Enter Password</label>
+
+        <div *ngIf="username.invalid && (username.dirty || username.touched)" id="loginInputWarn" class="alert alert-danger">
+            Username is required
         </div>
 
-        <div class="login-btn">
-            <button type="submit" class="btn btn-outline-primary" (click)="loginUser()" routerLink="/main">Login</button>
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control ng-untouched ng-pristine" id="loginPassword"
+                [(ngModel)]="loginInfo.password" name="password" #password="ngModel" placeholder="Enter Password" required>
+            <label for="floatingInput">Enter Password</label>
         </div>
+
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" id="loginInputWarn" class="alert alert-danger">
+            Password is required
+        </div>
+        <button type="submit" class="btn btn-outline-primary" [disabled]="!loginForm.form.valid">Login</button>
+    </form>
         <div class="registerUser">
             <div class="regUserText">
                 Not a member?
             </div>
             <span><a routerLink="/register">Sign up</a> Today! </span>
         </div>
-    </div>
 </div>
-

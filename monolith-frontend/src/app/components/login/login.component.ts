@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { ClientMessage } from 'src/app/models/client-message.model';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from "@angular/router"
 
 @Component({
   selector: 'app-login',
@@ -10,32 +10,27 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class LoginComponent {
 
+  loginInfo: User = new User('','','','')
+  user: User = new User('', '', '', '');
 
-  title = "User Login"
-  username!:string;
-  password!:string;
+  constructor(private userServ: UserService, private router: Router) { }
 
-  
-  public clientMessage: ClientMessage = new ClientMessage('')
-  user?: User;
-  
-  constructor(private userServ:UserService) { }
-
-
-
-
-
-  public loginUser(){
+  public loginUser() {
+    console.log(this.loginInfo.username +" " +this.loginInfo.password);
     
-    this.userServ.loginUser(this.username, this.password).subscribe(data => {this.user = data, (error: any) => this.clientMessage.message = "Username or Password is Incorrect. Please try again."; 
-    sessionStorage.setItem('loggedUser', JSON.stringify(this.user));
-    })
+    this.userServ.loginUser(this.loginInfo.username, this.loginInfo.password).subscribe(data => {
+      this.user = data;
+
+      console.log(this.user);
+      if (this.user != null) {
+        this.router.navigate(['/'])
+      }
+      // sessionStorage.setItem('loggedUser', JSON.stringify(this.user));
+    });
     console.log(sessionStorage.getItem('loggedUser'));
-    if(sessionStorage != null){
-      this.user = undefined;
-    }
-    
+
+
   }
 
-  
+
 }
