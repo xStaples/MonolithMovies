@@ -10,12 +10,12 @@ import { LoginComponent } from './components/login/login.component';
 import { AllmoviesComponent } from './components/allmovies/allmovies.component';
 import { FindmovieComponent } from './components/findmovie/findmovie.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { UpdateuserComponent } from './components/updateuser/updateuser.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 @NgModule({
   declarations: [

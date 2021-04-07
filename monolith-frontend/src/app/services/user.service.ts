@@ -7,7 +7,7 @@ import { BACKEND_URL } from 'src/environments/environment';
 import {catchError} from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'any'
 })
 export class UserService {
 
@@ -16,7 +16,7 @@ export class UserService {
   constructor(private http:HttpClient) { }
 
   public updateUser(user:User){
-    //TODO: service layer update user account info
+  
   }
 
   public loginUser(username:string, password:string) {
@@ -29,8 +29,8 @@ export class UserService {
     sessionStorage.clear();
   }
 
-  public registerUser(user: User): Observable<ClientMessage>{
-    return this.http.post<ClientMessage>(`${BACKEND_URL}movieusers/adduser`, user)
+  public registerUser(user: User): Observable<User>{
+    return this.http.post<User>(`${BACKEND_URL}movieusers/adduser`, user)
     .pipe(
       catchError(this.handleError<any>('Cannot register User!'))
     )
