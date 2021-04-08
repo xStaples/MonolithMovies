@@ -6,22 +6,26 @@
     <hr class="my-4">
     <form (ngSubmit)="updateUser()" #updateUserForm="ngForm">
         <div class="form-floating mb-3">
-            <input type="text" class="form-control ng-untouched ng-pristine" id="updateFirstName" [(ngModel)]="user.firstName" name="firstName" placeholder="first name" [disabled]="!canEdit">
+            <input type="text" class="form-control ng-untouched ng-pristine" id="updateFirstName"
+                [(ngModel)]="user.firstName" name="firstName" placeholder="first name" [disabled]="!canEdit">
             <label for="firstName">Edit First Name</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="text" class="form-control ng-untouched ng-pristine" id="updateLastName" [(ngModel)]="user.lastName" name="lastName" placeholder="last name" [disabled]="!canEdit">
+            <input type="text" class="form-control ng-untouched ng-pristine" id="updateLastName"
+                [(ngModel)]="user.lastName" name="lastName" placeholder="last name" [disabled]="!canEdit">
             <label for="lastName">Edit Last Name</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="text" class="form-control ng-untouched ng-pristine" id="updateUsername" [(ngModel)]="user.username" name="username" placeholder="username" [disabled]="!canEdit">
+            <input type="text" class="form-control ng-untouched ng-pristine" id="updateUsername"
+                [(ngModel)]="user.username" name="username" placeholder="username" [disabled]="!canEdit">
             <label for="username">Edit Last Name</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="password" class="form-control ng-untouched ng-pristine" id="updatePassword" [(ngModel)]="user.password" name="password" placeholder="password" [disabled]="!canEdit">
+            <input type="password" class="form-control ng-untouched ng-pristine" id="updatePassword"
+                [(ngModel)]="user.password" name="password" placeholder="password" [disabled]="!canEdit">
             <label for="password">Edit Last Name</label>
         </div>
-        
+
         <div *ngIf="!canEdit">
             <button (click)="editForm()">Edit</button>
         </div>

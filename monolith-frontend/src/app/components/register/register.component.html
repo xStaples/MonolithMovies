@@ -6,7 +6,9 @@
     <hr class="my-4">
     <form (ngSubmit)="registerUser(); registrationForm.reset()" #registrationForm="ngForm">
         <div class="form-floating mb-3">
-            <input type="text" class="form-control ng-untouched ng-pristine" id="regFirstName" [(ngModel)]="user.firstName" name="firstName" placeholder="Enter First Name" #firstName="ngModel" required>
+            <input type="text" class="form-control ng-untouched ng-pristine" id="regFirstName"
+                [(ngModel)]="user.firstName" name="firstName" placeholder="Enter First Name" #firstName="ngModel"
+                required>
             <label for="firstName">Enter First Name</label>
 
             <div [hidden]="firstName.valid || !firstName.touched" id="regInputWarn" class="alert alert-danger">
@@ -14,7 +16,8 @@
             </div>
         </div>
         <div class="form-floating mb-3">
-            <input type="text" class="form-control ng-untouched ng-pristine" id="regLastName" [(ngModel)]="user.lastName" name="lastName" placeholder="Enter Last Name" #lastName="ngModel" required>
+            <input type="text" class="form-control ng-untouched ng-pristine" id="regLastName"
+                [(ngModel)]="user.lastName" name="lastName" placeholder="Enter Last Name" #lastName="ngModel" required>
             <label for="firstname">Enter Last Name</label>
 
             <div [hidden]="lastName.valid || !lastName.touched" id="regInputWarn" class="alert alert-danger">
@@ -22,18 +25,22 @@
             </div>
         </div>
         <div class="form-floating mb-3">
-            <input type="text" class="form-control ng-untouched ng-pristine" id="regUsername" [(ngModel)]="user.username" name="username" placeholder="Enter Last Name" #username="ngModel" required>
+            <input type="text" class="form-control ng-untouched ng-pristine" id="regUsername"
+                [(ngModel)]="user.username" name="username" placeholder="Enter Last Name" #username="ngModel" required>
             <label for="username">Enter a Username</label>
 
-            <div *ngIf="username.invalid && (username.dirty || username.touched)" id="regInputWarn" class="alert alert-danger">
+            <div *ngIf="username.invalid && (username.dirty || username.touched)" id="regInputWarn"
+                class="alert alert-danger">
                 Username is required
             </div>
         </div>
         <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="regPassword" [(ngModel)]="user.password" name="password" placeholder="Enter Last Name" #password="ngModel" minlength="8" required>
+            <input type="password" class="form-control" id="regPassword" [(ngModel)]="user.password" name="password"
+                placeholder="Enter Last Name" #password="ngModel" minlength="8" required>
             <label for="password">Enter a Password</label>
 
-            <div *ngIf="password.invalid && (password.dirty || password.touched)" id="regInputWarn" class="alert alert-danger">
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" id="regInputWarn"
+                class="alert alert-danger">
                 <div *ngIf="password.errors!.required">
                     Password is required
                 </div>
@@ -45,5 +52,5 @@
         <!-- button will not work if form is marked invalid -->
         <button type="submit" class="btn btn-primary" [disabled]="!registrationForm.form.valid">Register</button>
     </form>
-    
+
 </div>
